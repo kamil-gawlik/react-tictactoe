@@ -1,18 +1,14 @@
-// @flow
+export function calculateWinner(winningSeq, squares) {
 
-const winningSeq = 5;
-
-
-export function calculateWinner(squares) {
     return [
         check_rows,
         check_columns,
         check_axis_right_up_to_left_down,
         check_axis_left_up_to_right_down
-    ].map(fun => fun(squares)).find(res => res !== null) || null;
+    ].map(fun => fun(winningSeq, squares)).find(res => res !== null) || null;
 }
 
-function check_rows(squares) {
+function check_rows(winningSeq, squares) {
     const size = squares.length;
     const rows = range(squares.length);
     const columns = range(size - winningSeq + 1);
@@ -20,7 +16,7 @@ function check_rows(squares) {
     return findWinningPattern(squares, startingPoints, winningSeq, (x, y) => [x, y + 1]);
 }
 
-function check_columns(squares) {
+function check_columns(winningSeq, squares) {
     const size = squares.length;
     const columns = range(squares.length);
     const rows = range(size - winningSeq + 1);
@@ -28,7 +24,7 @@ function check_columns(squares) {
     return findWinningPattern(squares, startingPoints, winningSeq, (x, y) => [x + 1, y]);
 }
 
-function check_axis_left_up_to_right_down(squares) {
+function check_axis_left_up_to_right_down(winningSeq, squares) {
     const size = squares.length;
     const rows = range(winningSeq - 1);
     const columns = range(size - winningSeq + 1);
@@ -36,7 +32,7 @@ function check_axis_left_up_to_right_down(squares) {
     return findWinningPattern(squares, startingPoints, winningSeq, (x, y) => [x + 1, y + 1]);
 }
 
-function check_axis_right_up_to_left_down(squares) {
+function check_axis_right_up_to_left_down(winningSeq, squares) {
     const size = squares.length;
     const rows = range(size - winningSeq + 1);
     const columns = range(size).slice(winningSeq - 1);

@@ -30,7 +30,7 @@ class GameBase extends React.Component {
         const current = history[history.length - 1];
         const squares = JSON.parse(JSON.stringify(current.squares)); // deep copy of multidimensional array
 
-        if (calculateWinner(squares) || squares[x][y]) {
+        if (calculateWinner(this.state.winningSeq, squares) || squares[x][y]) {
             return;
         }
         squares[x][y] = this.state.xIsNext ? 'X' : 'O';
@@ -44,7 +44,7 @@ class GameBase extends React.Component {
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
-        const winner = calculateWinner(current.squares);
+        const winner = calculateWinner(this.state.winningSeq, current.squares);
         const status = winner ? 'Winner ' + winner : 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
         const moves = history.map((step, move) => {
