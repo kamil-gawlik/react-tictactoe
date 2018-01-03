@@ -1,11 +1,11 @@
 import * as React from "react";
 import PropTypes from 'prop-types';
-
+import Paper from 'material-ui/Paper';
 export function Square(props) {
     return (
-        <button className="square" onClick={props.onClick}>
+        <Paper className="square" onClick={props.onClick}>
             {props.value}
-        </button>
+        </Paper>
     );
 }
 
