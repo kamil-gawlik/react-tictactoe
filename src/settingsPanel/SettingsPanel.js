@@ -8,8 +8,7 @@ import {startConfig} from "../redux/reducers";
 class SettingsPanelBase extends React.Component {
 
     constructor(props) {
-        super(props)
-        startConfig
+        super(props);
         this.state = {
             size: startConfig.size,
             winningSeq: startConfig.winningSeq,
@@ -58,7 +57,8 @@ const getIntsInRange = (lowerBound, upperBound) => {
         if (i >= lowerBound) {
             return i
         }
-    }).filter(e => e !== undefined);
+        return null;
+    }).filter(e => e !== null);
 }
 
 const mapStateToProps = (state) => {
