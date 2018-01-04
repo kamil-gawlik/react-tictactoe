@@ -1,5 +1,12 @@
 [![Build Status](https://travis-ci.org/kamil-gawlik/react-tictactoe.svg?branch=master)](https://travis-ci.org/kamil-gawlik/react-tictactoe)
 
+First project prepared with React, it's a bit more complex case of TicTacToe game described in tutorial.
+For lerning purpose redux and material-ui was used.
+
+[Link to app on heroku (as long as it is available)](https://kgl-ttt.herokuapp.com)
+
+-----------------------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
